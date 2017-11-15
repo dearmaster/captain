@@ -48,6 +48,7 @@ public class DatabaseConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource());
         sessionFactory.setPackagesToScan(packageToScanEntities);
         Properties props = new Properties();
         props.setProperty("hibernate.show_sql", hibernateShowSql);
