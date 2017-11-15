@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage My Blogs</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
+
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/jquery.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/template.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.config.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
+
+    <script type="text/javascript" th:inline="javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: '<%= ctx%>/article/load',
+                success: function (data) {
+                    if (data != "") {
+                        $.each(data, function (index, item) {
+                            $('#blog-list ul').append('<li><a href="javascript:displayBlog(&quot;blog_' + index + '&quot;);">' + item.subject + '</a></li>');
+                            $('#blog-detail').append('<div class="blog" id="blog_' + index + '">' + item.content + '</div>');
+                            $('.blog').hide();
+                        });
+                    }
+                }
+            });
+        });
+        function displayBlog(id) {
+            $('.blog').hide();
+            $('#' + id).show();
+        }
+    </script>
+
+</head>
+<body>
+
+    <div style="width: 960px; margin-left: auto; margin-right: auto">
+        <div id="blog-list" style="float: left; top: 0px; width: 200px;">
+            <ul>
+            </ul>
+        </div>
+        <div id="blog-detail" style="float: left; width: 600px;">
+        </div>
+    </div>
+
+</body>
+</html>

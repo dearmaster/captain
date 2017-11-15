@@ -25,4 +25,9 @@ public class ArticleController {
         return articleService.load();
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "index";
+    }
+
 }
