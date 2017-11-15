@@ -2,17 +2,20 @@ package com.leaf.captain.blog;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-//@EnableTransactionManagement
+@EnableTransactionManagement
 @PropertySource("classpath:/configuration/db.properties")
+@EntityScan(basePackages = "com.leaf.captain.blog.model")
 public class DatabaseConfiguration {
 
     @Value("${SYSTEM_DB_URL}")
@@ -37,17 +40,6 @@ public class DatabaseConfiguration {
     @Value("${hibernate.hbm2ddl.import_files}")
     private String hibernateHbm2ddlImportFiles;
 
-    /**
-     *           <prop key="hibernate.show_sql">${hibernate.prop.show_sql.${RUN_MODE}}</prop>
-     <prop key="hibernate.format_sql">${hibernate.prop.format_sql.${RUN_MODE}}</prop>
-     <prop key="hibernate.hbm2ddl.auto">${hibernate.prop.hbm2ddl.auto.${RUN_MODE}}</prop>
-     <prop key="hibernate.current_session_context_class">${hibernate.current_session_context_class.${RUN_MODE}}</prop>
-     <prop key="hibernate.dialect">${SYSTEM_DB_DIALECT}</prop>
-     <prop key="hibernate.dialect">${SYSTEM_DB_DIALECT}</prop>
-     <prop key="hibernate.hbm2ddl.import_files">${hibernate.hbm2ddl.import_files.${RUN_MODE}}</prop>
-     * @return
-     */
-
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
 
@@ -63,7 +55,6 @@ public class DatabaseConfiguration {
         return sessionFactory;
     }
 
-//    @Bean(destroyMethod = "close", initMethod = "init")
     @Bean(destroyMethod = "close")
     public DataSource dataSource() {
         BasicDataSource datasource = new BasicDataSource();
