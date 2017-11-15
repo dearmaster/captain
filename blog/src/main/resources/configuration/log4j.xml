@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%-5p] [%l]%n%m%n%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="DEBUG" />
+            <param name="levelMax" value="ERROR" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+
+    <appender name="RollingFileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="D:/log4j/RollingFileAppender.log" />
+        <param name="Append" value="true" />
+        <param name="MaxBackupIndex" value="10" />
+        <param name="MaxFileSize" value="10KB" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%-5p] [method:%l]%n%m%n%n" />
+        </layout>
+    </appender>
+
+    <appender name="DailyRollingFileAppender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="D:/log4j/DailyRollingFileAppender.log" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd-HH-mm'.log'" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss:SSS}] [%-5p] [method:%l]%n%m%n%n" />
+        </layout>
+    </appender>
+
+
+    <logger name="test.log4j.test8.UseLog4j" additivity="false">
+        <level value ="WARN"/>
+        <appender-ref ref="DailyRollingFileAppender"/>
+    </logger>
+
+    <logger name="org" additivity="false">
+        <level value ="DEBUG"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </logger>
+
+    <root>
+        <level value ="DEBUG"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </root>
+
+</log4j:configuration>
