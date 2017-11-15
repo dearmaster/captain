@@ -2,8 +2,10 @@ package com.leaf.captain.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = "com.leaf.captain.blog.model")
 public class StartBlogApplication {
 
     private static final String customizedPath = "configuration/log4j.xml";

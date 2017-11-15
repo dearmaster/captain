@@ -2,7 +2,6 @@ package com.leaf.captain.blog;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -15,8 +14,13 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:/configuration/db.properties")
-@EntityScan(basePackages = "com.leaf.captain.blog.model")
 public class DatabaseConfiguration {
+
+    /**
+     * Exception will be thrown like below if not set this property to sessionFactory
+     * org.hibernate.hql.internal.ast.QuerySyntaxException: Article is not mapped [from Article]
+     */
+    private static final String packageToScanEntities = "com.leaf.captain.blog.model";
 
     @Value("${SYSTEM_DB_URL}")
     private String url;
@@ -44,6 +48,7 @@ public class DatabaseConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
 
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setPackagesToScan(packageToScanEntities);
         Properties props = new Properties();
         props.setProperty("hibernate.show_sql", hibernateShowSql);
         props.setProperty("hibernate.format_sql", hibernateFormatSql);
