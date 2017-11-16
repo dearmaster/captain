@@ -1,4 +1,4 @@
-package com.leaf.captain.blog.web;
+package com.leaf.captain.blog;
 
 import com.leaf.captain.blog.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;

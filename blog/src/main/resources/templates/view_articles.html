@@ -15,11 +15,21 @@
 </head>
 <body>
 
-<table>
-    <tr th:each="article : ${articles}">
-        <td><a href="#" th:text="${message.subject}">Subject ...</a></td>
-    </tr>
-</table>
+    <div style="text-align: center;margin:0 auto;width: 1000px; ">
+        <h2>文章</h2>
+        <table width="100%" border="1" cellspacing="1" cellpadding="0">
+            <tr>
+                <td>作者</td>
+                <td>教程名称</td>
+                <td>地址</td>
+            </tr>
+            <!--/*@thymesVar id="articleList" type=""*/-->
+            <tr th:each="article : ${articleList}">
+                <td th:text="${article.subject}">嘟嘟MD</td>
+                <td th:text="${article.content}">SPringBoot干货系列</td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 </html>
