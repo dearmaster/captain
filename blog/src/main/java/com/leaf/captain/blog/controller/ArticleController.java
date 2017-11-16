@@ -9,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -24,14 +22,14 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/load", method = RequestMethod.GET)
+    @RequestMapping(value = "/loadArticles", method = RequestMethod.GET)
     public List<Article> load() {
-        return articleService.load();
+        return articleService.loadArticles();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayArticles(ModelMap map) {
-        map.put("articleList", articleService.load());
+        map.put("categories", articleService.loadCategories());
         return "view_articles";
     }
 

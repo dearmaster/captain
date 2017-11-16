@@ -15,7 +15,7 @@ public class Category {
     private String name;
     @Column(name = "description")
     private String description;
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,mappedBy="category")
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="category")
     private List<Article> articles;
 
     public Category() {
@@ -51,4 +51,11 @@ public class Category {
         this.description = description;
     }
 
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
 }

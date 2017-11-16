@@ -18,7 +18,7 @@ public class Article {
     @Type(type = "text")
     @Column(name = "content", nullable = false)
     private String content;
-    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
     @JoinColumn(name="category_id")
     private Category category;
 
@@ -52,6 +52,14 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
