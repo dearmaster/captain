@@ -121,7 +121,7 @@
                         <contextPath>/${artifactId}</contextPath>
                     </webApp>
                     <httpConnector>
-                        <port>8080</port>
+                        <port>9090</port>
                         <host>localhost</host>
                     </httpConnector>
                     <scanIntervalSeconds>10</scanIntervalSeconds>

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 @EntityScan(basePackages = "com.leaf.captain.blog.model")
-public class StartBlogApplication {
+public class Application {
 
     private static final String customizedPath = "configuration/log4j.xml";
 
@@ -15,7 +15,7 @@ public class StartBlogApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(StartBlogApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }

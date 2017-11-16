@@ -15,31 +15,11 @@
 </head>
 <body>
 
-    <div style="width: 960px; margin-left: auto; margin-right: auto">
-        <div id="blog-list" style="float: left; top: 0px; width: 200px;">
-            <ul>
-            </ul>
-        </div>
-        <div id="blog-detail" style="float: left; width: 600px;">
-        </div>
-    </div>
-
-
-    <script th:inline="javascript">
-        $(function(){
-            $.ajax({
-                url:"/article/load",
-                data:{
-                },
-                type:"get",
-                dataType: "json",
-                success:function(text){
-                    alert(text);
-                }
-            });
-        });
-    </script>
-
+<table>
+    <tr th:each="article : ${articles}">
+        <td><a href="#" th:text="${message.subject}">Subject ...</a></td>
+    </tr>
+</table>
 
 </body>
 </html>

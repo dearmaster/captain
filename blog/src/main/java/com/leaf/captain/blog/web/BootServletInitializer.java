@@ -1,6 +1,6 @@
 package com.leaf.captain.blog.web;
 
-import com.leaf.captain.blog.StartBlogApplication;
+import com.leaf.captain.blog.Application;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
@@ -11,7 +11,7 @@ public class BootServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-        return builder.sources(StartBlogApplication.class);
+        return builder.sources(Application.class);
     }
 
 }

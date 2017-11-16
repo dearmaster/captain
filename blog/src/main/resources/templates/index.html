@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Manage My Blogs</title>
+    <title>Welcome to My Blog</title>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
+
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/jquery.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/template.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.config.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
+
 </head>
+
 <body>
-<h1>Login page</h1>
+
+<table>
+    <tr>
+        <td>context中的attribute</td>
+        <td th:text="123">42</td>
+    </tr>
+</table>
+
 </body>
 </html>
