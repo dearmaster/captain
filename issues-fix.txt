@@ -5,3 +5,9 @@
 
 fix:
 <body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">
+
+2. 当拿到的Category放入HashMap中后，页面通过Category来排序的时候发现每次刷新页面得到的顺序
+都不一样
+
+fix:
+将拿到的Categories放入TreeMap中，并且让Category实现Comparable接口

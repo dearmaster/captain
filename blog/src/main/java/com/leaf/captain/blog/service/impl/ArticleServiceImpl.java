@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service("articleService")
 @Transactional
@@ -41,7 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Map<Category, Article> loadCategoryArticleMap() {
         List<Article> list = articleDao.load();
-        Map<Category, Article> map = new HashMap<>();
+        Map<Category, Article> map = new TreeMap<>();
         if(!list.isEmpty()) {
             for(Article article : list) {
                 map.put(article.getCategory(), article);

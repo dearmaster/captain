@@ -43,7 +43,6 @@
                     <td>Article Name</td>
                     <td>Content</td>
                 </tr>
-                <!--/*@thymesVar id="articleList" type=""*/-->
                 <tr th:each="article : ${categoryEntry.value}">
                     <td th:text="${article.subject}">empty</td>
                     <td th:text="${article.content}">empty</td>

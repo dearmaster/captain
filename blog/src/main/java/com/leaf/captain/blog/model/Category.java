@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name="t_category")
-public class Category {
+public class Category implements Comparable {
 
     @Id
     @Basic(optional = false)
@@ -66,5 +66,13 @@ public class Category {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(! (o instanceof Category))
+            return 1;
+        Category category = (Category) o;
+        return this.name.compareTo(category.getName());
     }
 }
