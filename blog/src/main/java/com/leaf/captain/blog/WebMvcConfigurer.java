@@ -22,9 +22,14 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/hello").setViewName("hello");
         registry.addViewController("/login").setViewName("login");
+
+        registry.addViewController("/articles").setViewName("view_articles");
+
+        registry.addViewController("/publish").setViewName("write-blog");
+
+
         registry.addViewController("/404").setViewName("error-page-not-found");
         registry.addViewController("/500").setViewName("error-internal");
-        registry.addViewController("/articles").setViewName("view_articles");
     }
 
 //    @Bean

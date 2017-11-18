@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Publish Article</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
+
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/jquery.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/template.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.config.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
+
+</head>
+<body background="static/img/bg.gif" style="text-align: left;">
+<div style="width: 960px; margin-left: auto; margin-right: auto;">
+    <h1 style="color: #ffffff; margin-left: 300px;">Write Article</h1>
+
+    <div id="additional-info" style="margin-bottom: 50px;"/>
+
+    <table style="color: #ffffff; font-size: 14px;">
+        <tr>
+            <td>Title</td>
+            <td>
+                <input id="subject" type="text"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>
+                <select id="category">
+                    <option value="测试分类1">测试分类1</option>
+                    <option value="测试分类2">测试分类2</option>
+                    <option value="测试分类3">测试分类3</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="myEditor" style="width:800px;height:240px; font-size: 14px;">
+</div>
+
+<!--<button onclick="getContent()">提交</button>-->
+
+
+
+</div>
+</body>
+</html>
