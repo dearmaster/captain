@@ -33,4 +33,9 @@ public class ArticleController {
         return "view_articles";
     }
 
+    @RequestMapping(value = "/publish", method = RequestMethod.GET)
+    public String publishArticle() {
+        return "write-blog";
+    }
+
 }

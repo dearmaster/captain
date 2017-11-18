@@ -6,14 +6,15 @@
     <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
 
-    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/jquery.min.js}"/>
-    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/template.min.js}"/>
-    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.config.js}"/>
-    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.min.js}"/>
-    <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
+    <script th:src="@{/static/js/ueditor/third-party/jquery.min.js}"></script>
+    <script th:src="@{/static/js/ueditor/third-party/template.min.js}"></script>
+    <script th:src="@{/static/js/ueditor/umeditor.config.js}"></script>
+    <script th:src="@{/static/js/ueditor/umeditor.min.js}"></script>
+    <script th:src="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"></script>
 
 </head>
-<body background="static/img/bg.gif" style="text-align: left;">
+<!--<body th:background="@{/static/img/bg.gif}" style="text-align: left;">-->
+<body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">
 <div style="width: 960px; margin-left: auto; margin-right: auto;">
     <h1 style="color: #ffffff; margin-left: 300px;">Write Article</h1>
 

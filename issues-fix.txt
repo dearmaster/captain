@@ -1,0 +1,7 @@
+
+1. <body background="static/img/bg.gif" style="text-align: left;">
+当涉及动态跳转，如请求http://localhost:9090/blog/article/publish后的view page中这么写就会出现
+请求变成http://localhost:9090/blog/article/static/img/bg.gif 页面显示找不到该gif图片
+
+fix:
+<body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">

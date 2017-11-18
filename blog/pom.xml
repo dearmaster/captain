@@ -109,6 +109,17 @@
             <version>1.9.9</version>
         </dependency>
 
+        <!-- below dependency used for hot deployment
+            need below property in application.properties file
+            spring.thymeleaf.cache=false
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>1.5.8.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
     <build>
