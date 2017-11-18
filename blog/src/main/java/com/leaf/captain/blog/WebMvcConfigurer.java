@@ -45,14 +45,11 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {
 
-        return new EmbeddedServletContainerCustomizer() {
-            @Override
-            public void customize(ConfigurableEmbeddedServletContainer container) {
+        return (container) -> {
                 ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
                 ErrorPage innerErrorPage = new ErrorPage("/error");
                 container.addErrorPages(error404Page);
                 container.addErrorPages(innerErrorPage);
-            }
         };
 
     }
