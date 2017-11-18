@@ -15,36 +15,54 @@
 </head>
 <!--<body th:background="@{/static/img/bg.gif}" style="text-align: left;">-->
 <body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">
-<div style="width: 960px; margin-left: auto; margin-right: auto;">
-    <h1 style="color: #ffffff; margin-left: 300px;">Write Article</h1>
 
-    <div id="additional-info" style="margin-bottom: 50px;"/>
+<form onsubmit="return encapsulateArticle()" action="#" th:action="@{/article/saveArticle}" th:method="post">
+    <div style="width: 960px; margin-left: auto; margin-right: auto;">
+        <h1 style="color: #ffffff; margin-left: 300px;">发表文章</h1>
 
-    <table style="color: #ffffff; font-size: 14px;">
-        <tr>
-            <td>Title</td>
-            <td>
-                <input id="subject" type="text"/>
-            </td>
-        </tr>
-        <tr>
-            <td>Category</td>
-            <td>
-                <select id="category">
-                    <option th:each="category : ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
-                </select>
-            </td>
-        </tr>
-    </table>
+        <div id="additional-info" style="margin-bottom: 50px;"/>
+
+        <table style="color: #ffffff; font-size: 14px;">
+            <tr>
+                <td>文章标题</td>
+                <td>
+                    <input type="text" name="subject" />
+                </td>
+            </tr>
+            <tr>
+                <td>文章分类</td>
+                <td>
+                    <select name="category.name">
+                        <option th:each="category : ${categories}" th:value="${category.name}"
+                                th:text="${category.name}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <input id="content" name="content" th:hidden="hidden"/>
+
+    <div id="myEditor" style="width:800px;height:240px; font-size: 14px;">
+    </div>
+
+    <input type="submit"/>
+</form>
+
 </div>
 
-<div id="myEditor" style="width:800px;height:240px; font-size: 14px;">
-</div>
+<script type="text/javascript">
 
-<!--<button onclick="getContent()">提交</button>-->
+    var um = UM.getEditor('myEditor');
+    
+    function encapsulateArticle() {
+        var blogContent = um.getContent();
+        console.log(blogContent);
+        $('#content').val(blogContent);
+        return true;
+    }
 
+</script>
 
-
-</div>
 </body>
 </html>

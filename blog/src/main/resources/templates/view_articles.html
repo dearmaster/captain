@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div style="text-align: center;margin:0 auto;width: 1000px; ">
+<!--<div style="text-align: center;margin:0 auto;width: 1000px; ">
     <h2>文章</h2>
     <div th:each="category : ${categories}">
         <p th:text="${category.name}">sample category</p>
@@ -24,12 +24,32 @@
                 <td>Article Name</td>
                 <td>Content</td>
             </tr>
-            <!--/*@thymesVar id="articleList" type=""*/-->
+            &lt;!&ndash;/*@thymesVar id="articleList" type=""*/&ndash;&gt;
             <tr th:each="article : ${category.articles}">
                 <td th:text="${article.subject}">empty</td>
                 <td th:text="${article.content}">empty</td>
             </tr>
         </table>
+    </div>
+</div>-->
+
+<div style="text-align: center;margin:0 auto;width: 1000px; ">
+    <h2>文章</h2>
+    <div th:each="categoryEntry : ${categoryArticleMap}">
+        <div th:each="category : ${categoryEntry.key}">
+            <p th:text="${category.name}">sample category</p>
+            <table width="100%" border="1" cellspacing="1" cellpadding="0">
+                <tr>
+                    <td>Article Name</td>
+                    <td>Content</td>
+                </tr>
+                <!--/*@thymesVar id="articleList" type=""*/-->
+                <tr th:each="article : ${categoryEntry.value}">
+                    <td th:text="${article.subject}">empty</td>
+                    <td th:text="${article.content}">empty</td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 

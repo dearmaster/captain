@@ -18,7 +18,7 @@ public class Article {
     @Type(type = "text")
     @Column(name = "content", nullable = false)
     private String content;
-    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @JoinColumn(name="category_id")
     private Category category;
 
@@ -68,6 +68,7 @@ public class Article {
                 "id=" + id +
                 ", subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
+                ", category=" + category +
                 '}';
     }
 

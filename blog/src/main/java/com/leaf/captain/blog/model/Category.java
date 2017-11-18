@@ -15,7 +15,7 @@ public class Category {
     private String name;
     @Column(name = "description")
     private String description;
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER,mappedBy="category")
+    @OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="category")
     private List<Article> articles;
 
     public Category() {
@@ -57,5 +57,14 @@ public class Category {
 
     public void setArticles(List<Article> articles) {
         this.articles = articles;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

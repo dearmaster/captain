@@ -5,6 +5,7 @@ import com.leaf.captain.blog.model.Category;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 public interface ArticleService {
 
@@ -13,5 +14,7 @@ public interface ArticleService {
     List<Article> loadArticles();
 
     List<Category> loadCategories();
+
+    Map<Category, Article> loadCategoryArticleMap();
 
 }
