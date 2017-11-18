@@ -34,7 +34,8 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/publish", method = RequestMethod.GET)
-    public String publishArticle() {
+    public String publishArticle(ModelMap map) {
+        map.put("categories", articleService.loadCategories());
         return "write-blog";
     }
 

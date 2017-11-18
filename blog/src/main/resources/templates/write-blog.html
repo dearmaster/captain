@@ -31,9 +31,7 @@
             <td>Category</td>
             <td>
                 <select id="category">
-                    <option value="测试分类1">测试分类1</option>
-                    <option value="测试分类2">测试分类2</option>
-                    <option value="测试分类3">测试分类3</option>
+                    <option th:each="category : ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
                 </select>
             </td>
         </tr>
