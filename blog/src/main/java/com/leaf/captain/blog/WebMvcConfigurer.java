@@ -10,6 +10,8 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.util.HashSet;
+
 @Configuration
 @EnableWebMvc
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
@@ -46,7 +48,11 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
                 ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404");
                 ErrorPage innerErrorPage = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR,"/500");
                 container.addErrorPages(error404Page);
-                container.addErrorPages(innerErrorPage);
+                //container.addErrorPages(innerErrorPage);
+                container.setErrorPages(new HashSet<ErrorPage>() {{
+                    add(error404Page);
+                    add(innerErrorPage);
+                }});
         };
 
     }
