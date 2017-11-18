@@ -14,6 +14,7 @@ public class TestController {
 
     @RequestMapping("/mathematic_error")
     public String testError500(ModelMap map) {
+        //ERROR will be thrown here as no view found for the corresponding name SUCCESS
         return "SUCCESS";
     }
 
