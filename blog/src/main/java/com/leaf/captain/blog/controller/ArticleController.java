@@ -52,7 +52,7 @@ public class ArticleController {
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
     public String saveArticle(Article article,Model model) {
         articleService.saveArticle(article);
-        return "write-blog";
+        return "view_articles";
     }
 
     @ModelAttribute

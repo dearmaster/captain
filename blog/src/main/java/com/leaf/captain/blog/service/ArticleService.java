@@ -15,6 +15,6 @@ public interface ArticleService {
 
     List<Category> loadCategories();
 
-    Map<Category, Article> loadCategoryArticleMap();
+    Map<Category, List<Article>> loadCategoryArticleMap();
 
 }

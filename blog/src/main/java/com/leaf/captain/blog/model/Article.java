@@ -18,7 +18,8 @@ public class Article {
     @Type(type = "text")
     @Column(name = "content", nullable = false)
     private String content;
-    @ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    //@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="category_id")
     private Category category;
 

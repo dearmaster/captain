@@ -40,13 +40,17 @@
             <p th:text="${category.name}">sample category</p>
             <table width="100%" border="1" cellspacing="1" cellpadding="0">
                 <tr>
+                    <td>ID</td>
                     <td>Article Name</td>
                     <td>Content</td>
                 </tr>
-                <tr th:each="article : ${categoryEntry.value}">
-                    <td th:text="${article.subject}">empty</td>
-                    <td th:text="${article.content}">empty</td>
-                </tr>
+                <div th:each="articleEntry : ${categoryArticleMap}">
+                    <tr th:each="article : ${articleEntry.value}">
+                        <td th:text="${article.id}">empty</td>
+                        <td th:text="${article.subject}">empty</td>
+                        <td th:text="${article.content}">empty</td>
+                    </tr>
+                </div>
             </table>
         </div>
     </div>

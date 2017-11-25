@@ -3,4 +3,5 @@ package com.leaf.captain.blog.dao;
 import com.leaf.captain.blog.model.Category;
 
 public interface CategoryDao extends BaseDao<Category> {
+    Category getByName(String name);
 }
