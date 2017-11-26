@@ -29,4 +29,23 @@ public class CategoryDaoImpl extends AbstractDao<Category> implements CategoryDa
         );
     }
 
+    @Override
+    public Category loadByName(String name) {
+        return super.execute(
+                session -> {
+                    List<Category> list = session.createCriteria(Category.class).add(Restrictions.eq("name", name)).list();
+                    if(!list.isEmpty()) {
+                        Category category = list.get(0);
+                        /**
+                         * LazyInitializationException will be throw here if
+                         * not refresh in lazy load
+                         */
+                        session.refresh(category);
+                        return category;
+                    }
+                    return null;
+                }
+        );
+    }
+
 }

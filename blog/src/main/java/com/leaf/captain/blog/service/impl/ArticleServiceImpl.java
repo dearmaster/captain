@@ -65,7 +65,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> loadArticlesByCategoryName(String categoryName) {
-        Category category = categoryDao.getByName(categoryName);
+        Category category = categoryDao.loadByName(categoryName);
         return category.getArticles();
     }
 }

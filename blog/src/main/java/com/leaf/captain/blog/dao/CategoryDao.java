@@ -12,4 +12,6 @@ public interface CategoryDao extends BaseDao<Category> {
 
     Category getByName(String name);
 
+    Category loadByName(String name);
+
 }
