@@ -23,8 +23,6 @@ public class ArticleController {
 
     private static final Logger logger = LogManager.getLogger(ArticleController.class);
 
-    private static final int ARTICLE_CONTENT_PREVIEW_LENGTH = 100;
-
     @Autowired
     private ArticleService articleService;
 
@@ -69,9 +67,6 @@ public class ArticleController {
     @RequestMapping(value = "/byCategory", method = RequestMethod.GET)
     public String getArticlesByCategoryName(Integer id, ModelMap map) {
         List<Article> articles = articleService.loadArticlesByCategoryId(id);
-        for (Article article : articles) {
-            article.setContent(article.getContent().substring(0, article.getContent().length() < ARTICLE_CONTENT_PREVIEW_LENGTH ? article.getContent().length() : ARTICLE_CONTENT_PREVIEW_LENGTH) + "...");
-        }
         if (logger.isDebugEnabled()) {
             logger.debug(articles);
         }

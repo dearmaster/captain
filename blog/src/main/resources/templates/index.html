@@ -66,13 +66,12 @@
 
             <div class="blogs_preview" th:if="${not #lists.isEmpty(articles)}">
                 <div class="blog_main_title">
-                    <span>文章列表</span>x
+                    <span>文章列表</span>
                 </div>
                 <div class="blog_main" th:each="article : ${articles}">
                     <div class="blog_title">
                         <a th:href="@{/article/byId(id=${article.id})}" th:text="${article.subject}"></a>
                     </div>
-                    <div class="blog_content" th:text="${article.content}"></div>
                 </div>
             </div>
 

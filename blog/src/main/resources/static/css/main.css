@@ -30,7 +30,7 @@ body {
 }
 
 .container > .content > .left-frame {
-    width: 200px;
+    width: 180px;
     border: dotted 1px #d5e1f2;
     padding: 5px 5px 5px 5px;
     float: left;
@@ -57,22 +57,22 @@ body {
 }
 
 .container > .content > .main-frame {
-    width: 720px;
+    width: 760px;
     border: dotted 1px #d5e1f2;
     float: right;
 }
 
 .container > .content > .main-frame > div > .blog_main_title {
-    border-bottom: dotted 1px #d5e1f2;
     text-align: center;
-    margin: 20px 10px 25px 10px;
-    padding-bottom: 5px;
+    margin: 20px 0px 20px 0px;
+    /*padding-bottom: 5px;*/
 }
 
 .container > .content > .main-frame > div > .blog_main {
-    margin: 0px 10px 15px 10px;
-    border: dotted 1px #d5e1f2;
-    padding: 20px 10px 15px 10px;
+    width: 80%;
+    margin: 8px auto;
+    text-align: center;
+    border-bottom: dotted 1px aquamarine;
 }
 
 .container > .content > .main-frame > div > .blog_title {
