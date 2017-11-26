@@ -17,4 +17,9 @@ public class ArticleDaoImpl extends AbstractDao<Article> implements ArticleDao {
         return super.load(Article.class);
     }
 
+    @Override
+    public Article get(Integer id) {
+        return super.load(Article.class, id);
+    }
+
 }

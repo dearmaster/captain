@@ -17,7 +17,7 @@ body {
 
 .container > .header {
     height: 100px;
-    border: dotted 1px goldenrod;
+    border: dotted 1px #d5e1f2;
 }
 
 .container > .content {
@@ -27,7 +27,7 @@ body {
 
 .container > .content > .left-frame {
     width: 200px;
-    border: dotted 1px fuchsia;
+    border: dotted 1px #d5e1f2;
     padding: 5px 5px 5px 5px;
     float: left;
 }
@@ -37,7 +37,7 @@ body {
     height: 150px;
     margin-left: auto;
     margin-right: auto;
-    border: dotted 1px deepskyblue;
+    border: dotted 1px #d5e1f2;
 }
 
 .container > .content > .left-frame > #blog_actions > ul > li {
@@ -49,11 +49,29 @@ body {
     margin-top: 5px;
     text-align: center;
     font-weight: bold;
-    color: lightcoral;
+    color: #d5e1f2;
 }
 
 .container > .content > .main-frame {
     width: 720px;
-    border: dotted 1px chartreuse;
+    border: dotted 1px #d5e1f2;
     float: right;
 }
+
+.container > .content > .main-frame > div > .blog_main_title {
+    border-bottom: dotted 1px #d5e1f2;
+    text-align: center;
+    margin: 20px 10px 25px 10px;
+    padding-bottom: 5px;
+}
+
+.container > .content > .main-frame > div > .blog_main {
+    margin: 0px 10px 15px 10px;
+    border: dotted 1px #d5e1f2;
+    padding: 20px 10px 15px 10px;
+}
+
+.container > .content > .main-frame > div > .blog_main > .blog_title {
+    margin-bottom: 15px;
+}
+

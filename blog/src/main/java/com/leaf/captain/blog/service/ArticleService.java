@@ -19,4 +19,6 @@ public interface ArticleService {
 
     List<Article> loadArticlesByCategoryName(String categoryName);
 
+    Article get(Integer id);
+
 }

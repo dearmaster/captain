@@ -25,6 +25,8 @@ public class ArticleController {
 
     private static final Logger logger = LogManager.getLogger(ArticleController.class);
 
+    private static final int ARTICLE_CONTENT_PREVIEW_LENGTH = 100;
+
     @Autowired
     private ArticleService articleService;
 
@@ -42,8 +44,8 @@ public class ArticleController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String loadAllArticles(ModelMap map) {
         Map<Category, List<Article>> categoryArticleMap = articleService.loadCategoryArticleMap();
-        if(logger.isDebugEnabled()) {
-            for(Category category : categoryArticleMap.keySet()) {
+        if (logger.isDebugEnabled()) {
+            for (Category category : categoryArticleMap.keySet()) {
                 logger.debug(categoryArticleMap.get(category));
             }
         }
@@ -58,7 +60,7 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
-    public String saveArticle(Article article,Model model) {
+    public String saveArticle(Article article, Model model) {
         articleService.saveArticle(article);
         return "view_articles";
     }
@@ -66,7 +68,10 @@ public class ArticleController {
     @RequestMapping(value = "/byCategory", method = RequestMethod.GET)
     public String getArticlesByCategoryName(String categoryName, ModelMap map) {
         List<Article> articles = articleService.loadArticlesByCategoryName(categoryName);
-        if(logger.isDebugEnabled()) {
+        for (Article article : articles) {
+            article.setContent(article.getContent().substring(0, article.getContent().length() < ARTICLE_CONTENT_PREVIEW_LENGTH ? article.getContent().length() : ARTICLE_CONTENT_PREVIEW_LENGTH) + "...");
+        }
+        if (logger.isDebugEnabled()) {
             logger.debug(articles);
         }
         map.put("articles", articles);
@@ -74,8 +79,19 @@ public class ArticleController {
         return "index";
     }
 
+    @RequestMapping(value = "byId", method = RequestMethod.GET)
+    public String getArticleById(Integer id, ModelMap map) {
+        Article article = articleService.get(id);
+        if (logger.isDebugEnabled()) {
+            logger.debug(article);
+        }
+        map.put("currentArticle", article);
+        map.put("categories", articleService.loadCategories()); //TODO need to refactor here
+        return "index";
+    }
+
     @ModelAttribute
-    Article setArticle(){
+    Article setArticle() {
         return new Article();
     }
 

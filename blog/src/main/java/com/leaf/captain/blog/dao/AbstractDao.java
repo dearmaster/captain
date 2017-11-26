@@ -1,5 +1,7 @@
 package com.leaf.captain.blog.dao;
 
+import com.leaf.captain.blog.model.Article;
+import com.leaf.captain.blog.model.Category;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +16,14 @@ public abstract class AbstractDao<T> implements BaseDao<T> {
 
     @Override
     public Serializable save(final T t) {
-        return this.execute(new DaoCallBack<Serializable>() {
-            @Override
-            public Serializable doInAction(Session session) {
-                return session.save(t);
-            }
-        });
+        return this.execute(session -> session.save(t));
     }
 
     @Override
     public void delete(final T t) {
 
         this.execute(
+
                 session -> {
                     session.delete(t);
                     return null;
@@ -48,13 +46,25 @@ public abstract class AbstractDao<T> implements BaseDao<T> {
 
     public List<T> load(final Class<T> claz) {
 
+        String hql = "from " + claz.getSimpleName();
         return this.execute(
-          session -> {
-              String hql = "from " + claz.getSimpleName();
-              return session.createQuery(hql).list();
-          }
+          session -> session.createQuery(hql).list()
         );
 
+    }
+
+    public T load(Class<T> claz, Integer id) {
+        return this.execute(
+                session -> (T) session.get(claz, id)
+        );
+    }
+
+    /**
+     * Need to be implemented by sub classes
+     */
+    @Override
+    public T get(Integer id) {
+        return null;
     }
 
     protected <T> T execute(DaoCallBack<T> callBack) {

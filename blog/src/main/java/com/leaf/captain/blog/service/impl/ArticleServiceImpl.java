@@ -68,4 +68,9 @@ public class ArticleServiceImpl implements ArticleService {
         Category category = categoryDao.loadByName(categoryName);
         return category.getArticles();
     }
+
+    @Override
+    public Article get(Integer id) {
+        return articleDao.get(id);
+    }
 }

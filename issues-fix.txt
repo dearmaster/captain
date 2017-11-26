@@ -11,3 +11,10 @@ fix:
 
 fix:
 将拿到的Categories放入TreeMap中，并且让Category实现Comparable接口
+
+3. LazyInitializationException
+    3-1. 当cascade=lazy的时候，在session之外调用级联的对象会出现该exception
+    fix: 使用session.refresh()
+    3-2. 当使用session.load(id)查询出来对象并在session之外调用时会出现该exception，因为
+        session.load是延时加载
+    fix: 改成session.get(id)
