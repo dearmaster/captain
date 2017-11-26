@@ -66,7 +66,7 @@
 
             <div class="blogs_preview" th:if="${not #lists.isEmpty(articles)}">
                 <div class="blog_main_title">
-                    <span>文章列表</span>
+                    <span>文章列表</span>x
                 </div>
                 <div class="blog_main" th:each="article : ${articles}">
                     <div class="blog_title">
@@ -78,9 +78,9 @@
 
             <div class="blog_view" th:if="${currentArticle != null}" th:object="${currentArticle}">
                 <div class="blog_title">
-                    <h3 th:text="*{subject}"></h3>
+                    <span th:text="*{subject}"></span>
                 </div>
-                <div class="blog_content" th:text="*{content}"></div>
+                <div id="blog_content" th:utext="*{content}"></div>
             </div>
 
         </div>
