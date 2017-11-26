@@ -85,6 +85,11 @@ body {
 
 .container > .content > .main-frame > div > .blog_title {
     text-align: center;
+    font-weight: bold;
     margin: 20px 10px 25px 10px;
+}
+
+.container > .content > .main-frame > div > .blog_content {
+    padding: 0px 10px;
 }
 
