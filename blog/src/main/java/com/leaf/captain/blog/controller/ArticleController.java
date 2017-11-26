@@ -59,6 +59,9 @@ public class ArticleController {
 
     @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
     public String saveArticle(Article article, Model model) {
+        if(logger.isDebugEnabled()) {
+            logger.debug("Starting to save article: " + article);
+        }
         articleService.saveArticle(article);
         return "view_articles";
     }

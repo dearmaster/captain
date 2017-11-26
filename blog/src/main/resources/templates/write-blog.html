@@ -33,9 +33,10 @@
             <tr>
                 <td>文章分类</td>
                 <td>
-                    <select name="category.name">
-                        <option th:each="category : ${categories}" th:value="${category.name}"
-                                th:text="${category.name}"></option>
+                    <select name="category.id">
+                        <option th:each="category : ${categories}" th:value="${category.id}"
+                                th:text="${category.name}">
+                        </option>
                     </select>
                 </td>
             </tr>
