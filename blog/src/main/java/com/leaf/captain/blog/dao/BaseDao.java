@@ -11,8 +11,8 @@ public interface BaseDao<T> {
     List<T> load();
 
     /**
-     * Since session.load is lazy loading
-     * Exception LazyInitializationException will be thrown if you use session.load(id)
+     * Since session.get is lazy loading
+     * Exception LazyInitializationException will be thrown if you use session.get(id)
      * and use the object in application out of current session.
      * While session.get(id) doesn't support lazy loading, so, no exception will be throw
      */

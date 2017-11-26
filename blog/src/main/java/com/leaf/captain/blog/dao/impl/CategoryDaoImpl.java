@@ -3,7 +3,6 @@ package com.leaf.captain.blog.dao.impl;
 import com.leaf.captain.blog.dao.AbstractDao;
 import com.leaf.captain.blog.dao.CategoryDao;
 import com.leaf.captain.blog.model.Category;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,39 +12,16 @@ public class CategoryDaoImpl extends AbstractDao<Category> implements CategoryDa
 
     @Override
     public List<Category> load() {
-        return super.load(Category.class);
+        return super.get(Category.class);
+    }
+
+    public Category getAndRefresh(Integer id) {
+        return super.getAndRefresh(Category.class, id);
     }
 
     @Override
-    public Category getByName(String name) {
-        return super.execute(
-                session -> {
-                    //List<User> list = session.createCriteria(User.class).add(Restrictions.eq("username", username)).list();
-                    List<Category> list = session.createCriteria(Category.class).add(Restrictions.eq("name", name)).list();
-                    if(!list.isEmpty())
-                        return list.get(0);
-                    return null;
-                }
-        );
-    }
-
-    @Override
-    public Category loadByName(String name) {
-        return super.execute(
-                session -> {
-                    List<Category> list = session.createCriteria(Category.class).add(Restrictions.eq("name", name)).list();
-                    if(!list.isEmpty()) {
-                        Category category = list.get(0);
-                        /**
-                         * LazyInitializationException will be throw here if
-                         * not refresh in lazy load
-                         */
-                        session.refresh(category);
-                        return category;
-                    }
-                    return null;
-                }
-        );
+    public Category get(Integer id) {
+        return super.get(Category.class, id);
     }
 
 }

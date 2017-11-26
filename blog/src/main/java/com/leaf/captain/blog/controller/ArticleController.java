@@ -9,12 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -66,8 +64,8 @@ public class ArticleController {
     }
 
     @RequestMapping(value = "/byCategory", method = RequestMethod.GET)
-    public String getArticlesByCategoryName(String categoryName, ModelMap map) {
-        List<Article> articles = articleService.loadArticlesByCategoryName(categoryName);
+    public String getArticlesByCategoryName(Integer id, ModelMap map) {
+        List<Article> articles = articleService.loadArticlesByCategoryId(id);
         for (Article article : articles) {
             article.setContent(article.getContent().substring(0, article.getContent().length() < ARTICLE_CONTENT_PREVIEW_LENGTH ? article.getContent().length() : ARTICLE_CONTENT_PREVIEW_LENGTH) + "...");
         }

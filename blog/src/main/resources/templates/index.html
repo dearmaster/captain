@@ -53,7 +53,7 @@
                 <div th:if="${not #lists.isEmpty(categories)}">
                     <ul>
                         <li th:each="category : ${categories}">
-                            <a th:href="@{/article/byCategory(categoryName=${category.name})}"
+                            <a th:href="@{/article/byCategory(id=${category.id})}"
                                th:text="${category.name}"></a>
                         </li>
                     </ul>
@@ -66,7 +66,7 @@
 
             <div class="blogs_preview" th:if="${not #lists.isEmpty(articles)}">
                 <div class="blog_main_title">
-                    <span th:text="${#httpServletRequest.getParameter('categoryName')}"/>
+                    <span>文章列表</span>
                 </div>
                 <div class="blog_main" th:each="article : ${articles}">
                     <div class="blog_title">
@@ -84,18 +84,6 @@
             </div>
 
         </div>
-
-        <!--<div class="main-frame" th:class="${currentArticle == null} ? 'hidden' : 'show'" th:unless="${article == null}">
-            <div class="blog_title">
-                <h3 th:text="${article.subject}"></h3>
-            </div>
-        </div>-->
-
-        <!--<div class="main-frame" th:class="${article == null} ? 'hidden' : 'show'" th:unless="${article == null}">
-            <div class="blog_title">
-                <h3 th:text="${article.subject}"></h3>
-            </div>
-        </div>-->
 
     </div>
 

@@ -27,7 +27,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Serializable saveArticle(Article article) {
-        Category category = categoryDao.getByName(article.getCategory().getName());
+        Category category = categoryDao.get(article.getCategory().getId());
         article.setCategory(category);
         Serializable ret =  articleDao.save(article);
         if(logger.isDebugEnabled()) {
@@ -64,8 +64,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<Article> loadArticlesByCategoryName(String categoryName) {
-        Category category = categoryDao.loadByName(categoryName);
+    public List<Article> loadArticlesByCategoryId(Integer categoryId) {
+        Category category = categoryDao.getAndRefresh(categoryId);
         return category.getArticles();
     }
 

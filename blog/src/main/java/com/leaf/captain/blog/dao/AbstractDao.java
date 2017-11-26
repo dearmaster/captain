@@ -44,7 +44,7 @@ public abstract class AbstractDao<T> implements BaseDao<T> {
 
     }
 
-    public List<T> load(final Class<T> claz) {
+    public List<T> get(final Class<T> claz) {
 
         String hql = "from " + claz.getSimpleName();
         return this.execute(
@@ -53,7 +53,7 @@ public abstract class AbstractDao<T> implements BaseDao<T> {
 
     }
 
-    public T load(Class<T> claz, Integer id) {
+    public T get(Class<T> claz, Integer id) {
         return this.execute(
                 session -> (T) session.get(claz, id)
         );
@@ -72,4 +72,13 @@ public abstract class AbstractDao<T> implements BaseDao<T> {
         return callBack.doInAction(session);
     }
 
+    public T getAndRefresh(Class<T> claz, Integer id) {
+        return this.execute(
+                session -> {
+                    T ret = (T) session.get(claz, id);
+                    session.refresh(ret);
+                    return ret;
+                }
+        );
+    }
 }
