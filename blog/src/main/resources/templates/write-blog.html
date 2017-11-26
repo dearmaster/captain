@@ -13,12 +13,13 @@
     <script th:src="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"></script>
 
 </head>
-<!--<body th:background="@{/static/img/bg.gif}" style="text-align: left;">-->
-<body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">
+<!--<body th:attr="background=@{/static/img/bg.gif}" style="text-align: left;">-->
+<body>
 
-<form onsubmit="return encapsulateArticle()" action="#" th:action="@{/article/saveArticle}" th:method="post">
-    <div style="width: 960px; margin-left: auto; margin-right: auto;">
-        <h1 style="color: #ffffff; margin-left: 300px;">发表文章</h1>
+<div class="container">
+    <form onsubmit="return encapsulateArticle()" action="#" th:action="@{/article/saveArticle}" th:method="post">
+        
+        <h1 style="margin-left: 300px;">发表文章</h1>
 
         <div id="additional-info" style="margin-bottom: 50px;"/>
 
@@ -26,7 +27,7 @@
             <tr>
                 <td>文章标题</td>
                 <td>
-                    <input type="text" name="subject" />
+                    <input type="text" name="subject"/>
                 </td>
             </tr>
             <tr>
@@ -39,22 +40,22 @@
                 </td>
             </tr>
         </table>
-    </div>
 
-    <input id="content" name="content" th:hidden="hidden"/>
+        <input id="content" name="content" th:hidden="hidden"/>
 
-    <div id="myEditor" style="width:800px;height:240px; font-size: 14px;">
-    </div>
+        <div id="myEditor" style="width:800px;height:240px; font-size: 14px;">
+        </div>
 
-    <input type="submit"/>
-</form>
+        <input type="submit"/>
+
+    </form>
 
 </div>
 
 <script type="text/javascript">
 
     var um = UM.getEditor('myEditor');
-    
+
     function encapsulateArticle() {
         var blogContent = um.getContent();
         console.log(blogContent);

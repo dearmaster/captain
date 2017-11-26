@@ -33,26 +33,31 @@
     </div>
 </div>-->
 
-<div style="text-align: center;margin:0 auto;width: 1000px; ">
-    <h2>文章</h2>
-    <div th:each="categoryEntry : ${categoryArticleMap}">
-        <div th:each="category : ${categoryEntry.key}">
-            <p th:text="${category.name}">sample category</p>
-            <table width="100%" border="1" cellspacing="1" cellpadding="0">
-                <tr>
-                    <td>ID</td>
-                    <td>Article Name</td>
-                    <td>Content</td>
-                </tr>
-                <div th:each="articleEntry : ${categoryArticleMap}">
-                    <tr th:each="article : ${articleEntry.value}">
-                        <td th:text="${article.id}">empty</td>
-                        <td th:text="${article.subject}">empty</td>
-                        <td th:text="${article.content}">empty</td>
+<div class="container">
+    <div th:if="${not #maps.isEmpty(categoryArticleMap)}" style="text-align: center">
+        <h2>文章</h2>
+        <div th:each="categoryEntry : ${categoryArticleMap}">
+            <div th:each="category : ${categoryEntry.key}">
+                <p th:text="${category.name}">sample category</p>
+                <table width="100%" border="1" cellspacing="1" cellpadding="0">
+                    <tr>
+                        <td>ID</td>
+                        <td>Article Name</td>
+                        <td>Content</td>
                     </tr>
-                </div>
-            </table>
+                    <div th:each="articleEntry : ${categoryArticleMap}">
+                        <tr th:each="article : ${articleEntry.value}">
+                            <td th:text="${article.id}">empty</td>
+                            <td th:text="${article.subject}">empty</td>
+                            <td th:text="${article.content}">empty</td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
         </div>
+    </div>
+    <div th:if="${#maps.isEmpty(categoryArticleMap)}">
+        <h2>No Article Available</h2>
     </div>
 </div>
 

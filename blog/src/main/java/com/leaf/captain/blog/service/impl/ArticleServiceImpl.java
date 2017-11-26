@@ -62,4 +62,10 @@ public class ArticleServiceImpl implements ArticleService {
         }
         return map;
     }
+
+    @Override
+    public List<Article> loadArticlesByCategoryName(String categoryName) {
+        Category category = categoryDao.getByName(categoryName);
+        return category.getArticles();
+    }
 }

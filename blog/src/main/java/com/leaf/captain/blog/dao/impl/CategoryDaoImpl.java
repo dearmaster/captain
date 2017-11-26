@@ -28,4 +28,5 @@ public class CategoryDaoImpl extends AbstractDao<Category> implements CategoryDa
                 }
         );
     }
+
 }

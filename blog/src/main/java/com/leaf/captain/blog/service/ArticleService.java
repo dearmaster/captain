@@ -17,4 +17,6 @@ public interface ArticleService {
 
     Map<Category, List<Article>> loadCategoryArticleMap();
 
+    List<Article> loadArticlesByCategoryName(String categoryName);
+
 }

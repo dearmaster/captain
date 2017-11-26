@@ -3,6 +3,7 @@ package com.leaf.captain.blog.dao.impl;
 import com.leaf.captain.blog.dao.AbstractDao;
 import com.leaf.captain.blog.dao.ArticleDao;
 import com.leaf.captain.blog.model.Article;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;

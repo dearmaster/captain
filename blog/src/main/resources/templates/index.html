@@ -4,7 +4,7 @@
     <title>Welcome to My Blog</title>
     <meta charset="utf-8"/>
 
-    <link rel="shortcut icon" href="static/img/logo.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="static/img/logo.jpg" type="image/x-icon"/>
 
     <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
@@ -16,22 +16,59 @@
     <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
 
     <style type="text/css">
-    body {
-        color: white;
-    }
+        body {
+            color: white;
+        }
     </style>
 
 </head>
 
-<body background="static/img/bg.gif" style="text-align: left;">
+<body>
 
+<div class="container">
 
-<table>
-    <tr>
-        <td>context中的attribute</td>
-        <td th:text="123">42</td>
-    </tr>
-</table>
+    <div class="header">
+        header
+    </div>
+
+    <div class="content">
+
+        <div class="left-frame">
+            <div id="blog_owner_logo">
+            </div>
+            <div id="blog_owner_name">Captain</div>
+            <div id="blog_actions">
+                <ul>
+                    <li>浏览：12345 次</li>
+                    <li>性别：男</li>
+                    <li>来自：中国上海</li>
+                    <li>
+                        <img th:src="@{/static/img/offline.gif}"/>
+                    </li>
+                </ul>
+            </div>
+            <div id="blog_menu">
+                <h5>文章分类</h5>
+
+                <div th:if="${not #lists.isEmpty(categories)}">
+                    <ul>
+                        <li th:each="category : ${categories}">
+                            <a th:href="@{/article/byCategory(categoryName=${category.name})}" th:text="${category.name}"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="main-frame">
+            main-frame
+        </div>
+
+    </div>
+
+</div>
 
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 package com.leaf.captain.blog.controller;
 
 import com.leaf.captain.blog.model.Article;
+import com.leaf.captain.blog.model.Category;
 import com.leaf.captain.blog.service.ArticleService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Map;
 
 //@RestController
 @Controller
@@ -39,7 +41,13 @@ public class ArticleController {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public String loadAllArticles(ModelMap map) {
-        map.put("categoryArticleMap", articleService.loadCategoryArticleMap());
+        Map<Category, List<Article>> categoryArticleMap = articleService.loadCategoryArticleMap();
+        if(logger.isDebugEnabled()) {
+            for(Category category : categoryArticleMap.keySet()) {
+                logger.debug(categoryArticleMap.get(category));
+            }
+        }
+        map.put("categoryArticleMap", categoryArticleMap);
         return "view_articles";
     }
 
@@ -53,6 +61,17 @@ public class ArticleController {
     public String saveArticle(Article article,Model model) {
         articleService.saveArticle(article);
         return "view_articles";
+    }
+
+    @RequestMapping(value = "/byCategory", method = RequestMethod.GET)
+    public String getArticlesByCategoryName(String categoryName, ModelMap map) {
+        List<Article> articles = articleService.loadArticlesByCategoryName(categoryName);
+        if(logger.isDebugEnabled()) {
+            logger.debug(articles);
+        }
+        map.put("articles", articles);
+        map.put("categories", articleService.loadCategories()); //TODO need to refactor here
+        return "index";
     }
 
     @ModelAttribute
