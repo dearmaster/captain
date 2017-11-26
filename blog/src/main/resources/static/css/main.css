@@ -59,6 +59,7 @@ body {
 .container > .content > .main-frame {
     width: 760px;
     border: dotted 1px #d5e1f2;
+    padding-bottom: 20px;
     float: right;
 }
 
