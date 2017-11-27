@@ -78,7 +78,7 @@ a:active {
 
 .container > .header > .nav > ul > li {
     float: left;
-    padding: 0 27px;
+    padding: 0 15px;
 }
 
 .container > .content {
