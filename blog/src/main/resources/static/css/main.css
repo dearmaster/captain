@@ -67,6 +67,7 @@ a:active {
 }
 
 .container > .header > .nav {
+    font-weight: bold;
     margin-top: 120px;
     width: 50%;
     float: left;
@@ -78,8 +79,23 @@ a:active {
 
 .container > .header > .nav > ul > li {
     float: left;
-    padding: 0 15px;
+    padding: 10px 15px;
 }
+
+.container > .header > .nav > ul > li > a:active {
+    color: blanchedalmond;
+}
+
+.container > .header > .nav > ul > li:hover {
+    background: #1abc9c;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/*.container > .header > .nav > ul > li > a {
+    padding: 0 15px;
+}*/
 
 .container > .content {
     width: 100%;
@@ -99,10 +115,16 @@ a:active {
 
 .container > .content > .left-frame > #blog_menu > div > ul > li {
     padding: 5px;
+    text-align: center;
 }
 
 .container > .content > .left-frame > #blog_menu > div > ul > li:hover {
     background-color: chocolate;
+
+    /*设置圆边*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
 }
 
 .container > .content > .left-frame > #blog_owner_logo {
