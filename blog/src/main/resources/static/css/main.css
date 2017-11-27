@@ -161,6 +161,10 @@ a:active {
     float: right;
 }
 
+.container > .content > .main-frame > .blogs_preview {
+    width: 95%;
+}
+
 .container > .content > .main-frame > div > .blog_main_title {
     text-align: center;
     margin: 40px 0px 50px 0px;
