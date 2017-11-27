@@ -4,11 +4,27 @@ body {
     text-align: left;
     margin-top: 0px;
 }
+a {
+    text-decoration: none;
+}
+a:link {
+    color: mediumspringgreen;
+}
+a:visited {
+    color: #d5e1f2;
+}
+a:hover {
+    color: blanchedalmond;
+}
+a:active {
+    color: #0000FF;
+}
 
 #myEditor {
     width:800px;
     height:240px;
     font-size: 14px;
+    color: #fff;
     background: url("../img/bg.gif");
 }
 
@@ -43,6 +59,18 @@ body {
     float: left;
 }
 
+.container > .content > .left-frame > #blog_menu {
+    margin-top: 50px;
+}
+
+.container > .content > .left-frame > #blog_menu > div > ul > li {
+    padding: 5px;
+}
+
+.container > .content > .left-frame > #blog_menu > div > ul > li:hover {
+    background-color: chocolate;
+}
+
 .container > .content > .left-frame > #blog_owner_logo {
     width: 150px;
     height: 150px;
@@ -72,13 +100,15 @@ body {
 
 .container > .content > .main-frame > div > .blog_main_title {
     text-align: center;
-    margin: 20px 0px 20px 0px;
+    margin: 40px 0px 50px 0px;
+    font-weight: bold;
+    font-size: 20px;
     /*padding-bottom: 5px;*/
 }
 
 .container > .content > .main-frame > div > .blog_main {
     width: 80%;
-    margin: 8px auto;
+    margin: 18px auto;
     text-align: center;
     border-bottom: dotted 1px aquamarine;
 }
@@ -86,7 +116,8 @@ body {
 .container > .content > .main-frame > div > .blog_title {
     text-align: center;
     font-weight: bold;
-    margin: 20px 10px 25px 10px;
+    font-size: 18px;
+    margin: 40px 0px;
 }
 
 .container > .content > .main-frame > div > .blog_content {
