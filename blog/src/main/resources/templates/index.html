@@ -84,11 +84,11 @@
                 </div>
             </div>
 
-            <div class="blogs_preview" th:if="${#lists.isEmpty(articles)}">
+            <!--<div class="blogs_preview" th:if="${#lists.isEmpty(articles)}">
                 <div class="blog_main_title">
                     <span>没有文章</span>
                 </div>
-            </div>
+            </div>-->
 
             <div class="blog_view" th:if="${currentArticle != null}" th:object="${currentArticle}">
                 <div class="blog_title">
