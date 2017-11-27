@@ -59,7 +59,7 @@
             <div id="blog_menu">
                 <h5>文章分类</h5>
 
-                <div th:if="${not #lists.isEmpty(categories)}">
+                <div class="blog_categories" th:if="${not #lists.isEmpty(categories)}">
                     <ul>
                         <li th:each="category : ${categories}">
                             <a th:href="@{/article/byCategory(id=${category.id})}"

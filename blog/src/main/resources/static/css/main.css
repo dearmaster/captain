@@ -113,6 +113,11 @@ a:active {
     margin-top: 50px;
 }
 
+.container > .content > .left-frame > #blog_menu > .blog_categories {
+    width: 80%;
+    margin-left: 0;
+}
+
 .container > .content > .left-frame > #blog_menu > div > ul > li {
     padding: 5px;
     text-align: center;
