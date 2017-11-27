@@ -43,8 +43,42 @@ a:active {
 }
 
 .container > .header {
-    height: 100px;
-    border: dotted 1px #d5e1f2;
+    height: 200px;
+}
+
+.container > .header > .sky {
+    height: 100%;
+    width: 40%;
+    float: left;
+    background: url("../img/sky.png") no-repeat 0px 0px;
+
+    /*兼容模式设置半透明*/
+    filter:alpha(opacity=30);
+    -moz-opacity:0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+}
+
+.container > .header > .star {
+    width: 10%;
+    height: 90px;
+    float: right;
+    background: url("../img/shinning-star.gif") no-repeat 0px 0px;
+}
+
+.container > .header > .nav {
+    margin-top: 120px;
+    width: 50%;
+    float: left;
+}
+
+.container > .header > .nav > ul {
+    list-style: none;
+}
+
+.container > .header > .nav > ul > li {
+    float: left;
+    padding: 0 27px;
 }
 
 .container > .content {
