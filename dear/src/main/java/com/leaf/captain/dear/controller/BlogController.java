@@ -1,7 +1,6 @@
 package com.leaf.captain.dear.controller;
 
 import com.leaf.captain.dear.model.Article;
-import com.leaf.captain.dear.model.Category;
 import com.leaf.captain.dear.service.ArticleService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -15,14 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 //@RestController
 @Controller
 @RequestMapping("/blog")
-public class ArticleController {
+public class BlogController {
 
-    private static final Logger logger = LogManager.getLogger(ArticleController.class);
+    private static final Logger logger = LogManager.getLogger(BlogController.class);
 
     @Autowired
     private ArticleService articleService;
