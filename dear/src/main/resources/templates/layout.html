@@ -31,10 +31,10 @@
         <div class="sky"></div>
         <div class="nav">
             <ul>
-                <li><a href="index.html" th:href="@{/photo/}">独家记忆</a></li>
-                <li><a href="index.html" th:href="@{/}" th:text="我的博客">我的博客</a></li>
-                <li><a href="index.html" th:href="@{/setup/}">文件管理</a></li>
-                <li><a href="index.html" th:href="@{/about/}">实用工具</a></li>
+                <li th:class="${navtype} == 'memory' ? 'selected'"><a href="index.html" th:href="@{/memory}">独家记忆</a></li>
+                <li th:class="${navtype} == 'blog' ? 'selected'"><a href="index.html" th:href="@{/blog}">我的博客</a></li>
+                <li th:class="${navtype} == 'filemgr' ? 'selected'"><a href="index.html" th:href="@{/filemgr}">文件管理</a></li>
+                <li th:class="${navtype} == 'toolkit' ? 'selected'"><a href="index.html" th:href="@{/toolkit}">实用工具</a></li>
             </ul>
         </div>
         <div class="star"></div>

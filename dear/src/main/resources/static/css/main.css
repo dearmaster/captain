@@ -97,6 +97,13 @@ a:active {
     border-radius: 3px;
 }
 
+.container > .header > .nav > ul > li.selected {
+    background: #1abc9c;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
 /*.container > .header > .nav > ul > li > a {
     padding: 0 15px;
 }*/
