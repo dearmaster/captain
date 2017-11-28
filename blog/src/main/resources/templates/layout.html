@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="htmlhead">
+    <title>Foregather</title>
+    <meta charset="utf-8"/>
 
-<head th:include="layout :: htmlhead" th:with="title='Blog'"></head>
+    <link rel="shortcut icon" href="static/img/logo.jpg" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{/static/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
+
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/jquery.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/third-party/template.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.config.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/umeditor.min.js}"/>
+    <link rel="text/javascript" th:href="@{/static/js/ueditor/lang/zh-cn/zh-cn.js}"/>
+
+    <style type="text/css">
+        body {
+            color: white;
+        }
+    </style>
+
+</head>
 
 <body>
 
