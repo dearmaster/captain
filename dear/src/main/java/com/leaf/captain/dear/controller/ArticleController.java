@@ -74,7 +74,7 @@ public class ArticleController {
         }
         map.put("articles", articles);
         map.put("categories", articleService.loadCategories()); //TODO need to refactor here
-        return "index";
+        return "blog";
     }
 
     @RequestMapping(value = "view", method = RequestMethod.GET)
@@ -85,7 +85,7 @@ public class ArticleController {
         }
         map.put("currentArticle", article);
         map.put("categories", articleService.loadCategories()); //TODO need to refactor here
-        return "index";
+        return "blog";
     }
 
     @ModelAttribute
