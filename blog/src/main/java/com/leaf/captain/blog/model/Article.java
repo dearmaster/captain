@@ -3,6 +3,7 @@ package com.leaf.captain.blog.model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "t_article")
@@ -18,6 +19,8 @@ public class Article {
     @Type(type = "text")
     @Column(name = "content", nullable = false)
     private String content;
+    @Column(name = "publish_date", nullable = false)
+    private Date publishDate;
     //@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="category_id")
@@ -51,6 +54,14 @@ public class Article {
         return content;
     }
 
+    public Date getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(Date publishDate) {
+        this.publishDate = publishDate;
+    }
+
     public void setContent(String content) {
         this.content = content;
     }
@@ -69,8 +80,9 @@ public class Article {
                 "id=" + id +
                 ", subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
+                ", publishDate=" + publishDate +
                 ", category=" + category +
                 '}';
     }
-
+    
 }

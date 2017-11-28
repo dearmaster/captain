@@ -181,7 +181,7 @@ a:active {
     width: 95%;
 }
 
-.container > .content > .main-frame > div > .blog_main_title {
+.container > .content > .main-frame > .blogs_preview > .blog_main_title {
     text-align: center;
     margin: 40px 0px 50px 0px;
     font-weight: bold;
@@ -189,21 +189,38 @@ a:active {
     /*padding-bottom: 5px;*/
 }
 
-.container > .content > .main-frame > div > .blog_main {
+.container > .content > .main-frame > .blogs_preview > .blog_main {
     width: 80%;
+    height: 25px;
     margin: 18px auto;
     text-align: center;
     border-bottom: dotted 1px aquamarine;
 }
 
-.container > .content > .main-frame > div > .blog_title {
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_info {
+    float: left;
+    padding-top: 2px;
+    font-size: 15px;
+    width: 40%;
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_title {
+    width: 55%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    /*margin: 40px 0px;*/
+    float: left;
+}
+
+.container > .content > .main-frame > .blog_view > .blog_title {
     text-align: center;
     font-weight: bold;
     font-size: 18px;
     margin: 40px 0px;
 }
 
-.container > .content > .main-frame > div > .blog_content {
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_content {
     padding: 0px 10px;
 }
 

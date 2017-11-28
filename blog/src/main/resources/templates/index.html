@@ -78,6 +78,9 @@
                     <span>文章列表</span>
                 </div>
                 <div class="blog_main" th:each="article : ${articles}">
+                    <div class="blog_info" th:text="${#calendars.format(article.publishDate, 'yyyy-MM-dd HH:mm:SS')}">
+                        2017-11-21 15:30:29
+                    </div>
                     <div class="blog_title">
                         <a th:href="@{/article/byId(id=${article.id})}" th:text="${article.subject}">写给2017</a>
                     </div>

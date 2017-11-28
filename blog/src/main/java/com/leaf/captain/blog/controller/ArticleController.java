@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -60,6 +61,7 @@ public class ArticleController {
         if(logger.isDebugEnabled()) {
             logger.debug("Starting to save article: " + article);
         }
+        article.setPublishDate(new Date());
         articleService.saveArticle(article);
         return "view_articles";
     }
