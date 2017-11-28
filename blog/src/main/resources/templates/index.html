@@ -89,7 +89,7 @@
 
             <div class="blogs_preview" th:if="${#lists.isEmpty(articles)} ? (${currentArticle == null} ? true : false): false">
                 <div class="blog_main_title">
-                    <span>没有文章</span>
+                    <span th:text="没有文章"></span>
                 </div>
             </div>
 
