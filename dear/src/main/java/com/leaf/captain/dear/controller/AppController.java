@@ -1,7 +1,7 @@
 package com.leaf.captain.dear.controller;
 
 import com.leaf.captain.dear.model.Category;
-import com.leaf.captain.dear.service.ArticleService;
+import com.leaf.captain.dear.service.BlogService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ public class AppController {
     private static final Logger logger = LogManager.getLogger(AppController.class);
 
     @Autowired
-    private ArticleService articleService;
+    private BlogService blogService;
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String navigateToIndex(ModelMap map) {
-        List<Category> categories = articleService.loadCategories();
+        List<Category> categories = blogService.loadCategories();
         if(logger.isDebugEnabled()) {
             logger.debug(categories);
         }
@@ -32,7 +32,7 @@ public class AppController {
 
     @RequestMapping(value = {"/blog"}, method = RequestMethod.GET)
     public String navigateToBlog(ModelMap map) {
-        List<Category> categories = articleService.loadCategories();
+        List<Category> categories = blogService.loadCategories();
         if(logger.isDebugEnabled()) {
             logger.debug(categories);
         }
@@ -42,7 +42,7 @@ public class AppController {
 
     @RequestMapping(value = {"/memory"}, method = RequestMethod.GET)
     public String navigateToMemory(ModelMap map) {
-        List<Category> categories = articleService.loadCategories();
+        List<Category> categories = blogService.loadCategories();
         if(logger.isDebugEnabled()) {
             logger.debug(categories);
         }

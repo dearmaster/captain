@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "t_article")
-public class Article {
+@Table(name = "t_blog")
+public class Blog {
 
     @Id
     @Basic(optional = false)
@@ -26,10 +26,10 @@ public class Article {
     @JoinColumn(name="category_id")
     private Category category;
 
-    public Article() {
+    public Blog() {
     }
 
-    public Article(String subject, String content) {
+    public Blog(String subject, String content) {
         this.subject = subject;
         this.content = content;
     }
@@ -76,7 +76,7 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Article{" +
+        return "Blog{" +
                 "id=" + id +
                 ", subject='" + subject + '\'' +
                 ", content='" + content + '\'' +

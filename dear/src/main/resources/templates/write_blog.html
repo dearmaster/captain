@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Publish Article</title>
+    <title>Publish Blog</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" th:href="@{/static/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/static/js/ueditor/themes/default/css/umeditor.css}"/>
@@ -17,7 +17,7 @@
 <body>
 
 <div class="container">
-    <form onsubmit="return encapsulateArticle()" action="#" th:action="@{/blog/save}" th:method="post">
+    <form onsubmit="return encapsulateBlog()" action="#" th:action="@{/blog/save}" th:method="post">
         
         <h1 style="margin-left: 300px;">发表文章</h1>
 
@@ -57,7 +57,7 @@
 
     var um = UM.getEditor('myEditor');
 
-    function encapsulateArticle() {
+    function encapsulateBlog() {
         var blogContent = um.getContent();
         console.log(blogContent);
         $('#content').val(blogContent);

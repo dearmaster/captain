@@ -16,7 +16,7 @@ public class Category implements Comparable {
     @Column(name = "description")
     private String description;
     @OneToMany(cascade=CascadeType.REFRESH,fetch=FetchType.LAZY,mappedBy="category")
-    private List<Article> articles;
+    private List<Blog> blogs;
 
     public Category() {
     }
@@ -51,12 +51,12 @@ public class Category implements Comparable {
         this.description = description;
     }
 
-    public List<Article> getArticles() {
-        return articles;
+    public List<Blog> getBlogs() {
+        return blogs;
     }
 
-    public void setArticles(List<Article> articles) {
-        this.articles = articles;
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
     }
 
     @Override

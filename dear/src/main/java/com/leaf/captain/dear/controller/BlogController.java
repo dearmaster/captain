@@ -1,7 +1,7 @@
 package com.leaf.captain.dear.controller;
 
-import com.leaf.captain.dear.model.Article;
-import com.leaf.captain.dear.service.ArticleService;
+import com.leaf.captain.dear.model.Blog;
+import com.leaf.captain.dear.service.BlogService;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,73 +22,58 @@ public class BlogController {
 
     private static final Logger logger = LogManager.getLogger(BlogController.class);
 
+    private static final String VIEW_BLOG = "blog";
+    private static final String VIEW_WRITE_BLOG = "write_blog";
+
     @Autowired
-    private ArticleService articleService;
+    private BlogService blogService;
 
     @RequestMapping(value = "/load", method = RequestMethod.GET)
-    public List<Article> load() {
-        return articleService.loadArticles();
+    public List<Blog> load() {
+        return blogService.loadBlogs();
     }
 
-    /*@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String displayArticles(ModelMap map) {
-        map.put("categories", articleService.loadCategories());
-        return "view_articles";
-    }*/
-
-    /*@RequestMapping(value = "/all", method = RequestMethod.GET)
-    public String loadAllArticles(ModelMap map) {
-        Map<Category, List<Article>> categoryArticleMap = articleService.loadCategoryArticleMap();
-        if (logger.isDebugEnabled()) {
-            for (Category category : categoryArticleMap.keySet()) {
-                logger.debug(categoryArticleMap.get(category));
-            }
-        }
-        map.put("categoryArticleMap", categoryArticleMap);
-        return "view_articles";
-    }*/
-
     @RequestMapping(value = "/publish", method = RequestMethod.GET)
-    public String publishArticle(ModelMap map) {
-        map.put("categories", articleService.loadCategories());
-        return "write-dear";
+    public String publishBlog(ModelMap map) {
+        map.put("categories", blogService.loadCategories());
+        return VIEW_WRITE_BLOG;
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveArticle(Article article, Model model) {
+    public String saveBlog(Blog blog, Model model) {
         if(logger.isDebugEnabled()) {
-            logger.debug("Starting to save article: " + article);
+            logger.debug("Starting to save blog: " + blog);
         }
-        article.setPublishDate(new Date());
-        articleService.saveArticle(article);
-        return "view_articles";
+        blog.setPublishDate(new Date());
+        blogService.saveBlog(blog);
+        return VIEW_BLOG;
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
-    public String getArticlesByCategoryName(Integer id, ModelMap map) {
-        List<Article> articles = articleService.loadArticlesByCategoryId(id);
+    public String getBlogsByCategoryName(Integer id, ModelMap map) {
+        List<Blog> blogs = blogService.loadBlogsByCategoryId(id);
         if (logger.isDebugEnabled()) {
-            logger.debug(articles);
+            logger.debug(blogs);
         }
-        map.put("articles", articles);
-        map.put("categories", articleService.loadCategories()); //TODO need to refactor here
-        return "blog";
+        map.put("blogs", blogs);
+        map.put("categories", blogService.loadCategories()); //TODO need to refactor here
+        return VIEW_BLOG;
     }
 
     @RequestMapping(value = "view", method = RequestMethod.GET)
-    public String getArticleById(Integer id, ModelMap map) {
-        Article article = articleService.get(id);
+    public String getBlogById(Integer id, ModelMap map) {
+        Blog blog = blogService.get(id);
         if (logger.isDebugEnabled()) {
-            logger.debug(article);
+            logger.debug(blog);
         }
-        map.put("currentArticle", article);
-        map.put("categories", articleService.loadCategories()); //TODO need to refactor here
-        return "blog";
+        map.put("currentBlog", blog);
+        map.put("categories", blogService.loadCategories()); //TODO need to refactor here
+        return VIEW_BLOG;
     }
 
     @ModelAttribute
-    Article setArticle() {
-        return new Article();
+    Blog setBlog() {
+        return new Blog();
     }
 
 }

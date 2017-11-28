@@ -1,7 +1,7 @@
 package com.leaf.captain.dear.dao.impl;
 
 import com.leaf.captain.dear.Application;
-import com.leaf.captain.dear.dao.ArticleDao;
+import com.leaf.captain.dear.dao.BlogDao;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
 @Transactional
-public class ArticleDaoImplTest {
+public class BlogDaoImplTest {
 
     @Autowired
-    private ArticleDao articleDao;
+    private BlogDao blogDao;
 
     @Before
     public void setUp() throws Exception {
@@ -29,7 +29,7 @@ public class ArticleDaoImplTest {
 
     @Test
     public void load() throws Exception {
-        System.out.println(articleDao.load());
+        System.out.println(blogDao.load());
     }
 
 }

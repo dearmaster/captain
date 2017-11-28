@@ -18,7 +18,7 @@ public class DatabaseConfiguration {
 
     /**
      * Exception will be thrown like below if not set this property to sessionFactory
-     * org.hibernate.hql.internal.ast.QuerySyntaxException: Article is not mapped [from Article]
+     * org.hibernate.hql.internal.ast.QuerySyntaxException: Blog is not mapped [from Blog]
      */
     private static final String packageToScanEntities = "com.leaf.captain.dear.model";
 

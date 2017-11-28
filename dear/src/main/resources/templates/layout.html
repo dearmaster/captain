@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="left_frame_menu" th:if="${navtype} == 'memory' ? true : false">
-                <h5>文章分类</h5>
+                <h4>Our Memory</h4>
 
                 <div class="blog_categories" th:if="${not #lists.isEmpty(categories)}">
                     <ul>
@@ -108,16 +108,16 @@
 
         <div class="main-frame">
 
-            <div class="blogs_preview" th:if="${not #lists.isEmpty(articles)}">
+            <div class="blogs_preview" th:if="${not #lists.isEmpty(blogs)}">
                 <div class="blog_main_title">
                     <span>文章列表</span>
                 </div>
-                <div class="blog_main" th:each="article : ${articles}">
-                    <div class="blog_info" th:text="${#calendars.format(article.publishDate, 'yyyy-MM-dd HH:mm:SS')}">
+                <div class="blog_main" th:each="blog : ${blogs}">
+                    <div class="blog_info" th:text="${#calendars.format(blog.publishDate, 'yyyy-MM-dd HH:mm:SS')}">
                         2017-11-21 15:30:29
                     </div>
                     <div class="blog_title">
-                        <a th:href="@{/blog/view(id=${article.id})}" th:text="${article.subject}">写给2017</a>
+                        <a th:href="@{/blog/view(id=${blog.id})}" th:text="${blog.subject}">写给2017</a>
                     </div>
                 </div>
 
@@ -141,13 +141,13 @@
             </div>
 
             <div class="blogs_preview"
-                 th:if="${#lists.isEmpty(articles)} ? (${currentArticle == null} ? true : false): false">
+                 th:if="${#lists.isEmpty(blogs)} ? (${currentBlog == null} ? true : false): false">
                 <div class="blog_main_title">
                     <span th:text="没有文章"></span>
                 </div>
             </div>
 
-            <div class="blog_view" th:if="${currentArticle != null}" th:object="${currentArticle}">
+            <div class="blog_view" th:if="${currentBlog != null}" th:object="${currentBlog}">
                 <div class="blog_title">
                     <span th:text="*{subject}"></span>
                 </div>
