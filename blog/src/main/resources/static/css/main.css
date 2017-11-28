@@ -83,7 +83,11 @@ a:active {
 }
 
 .container > .header > .nav > ul > li > a:active {
-    color: blanchedalmond;
+    color: mediumspringgreen;
+}
+
+.container > .header > .nav > ul > li > a:visited {
+    color: mediumspringgreen;
 }
 
 .container > .header > .nav > ul > li:hover {
