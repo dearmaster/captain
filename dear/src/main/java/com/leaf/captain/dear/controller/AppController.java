@@ -27,7 +27,7 @@ public class AppController {
             logger.debug(categories);
         }
         map.put("categories", categories);
-        return "index";
+        return "memory";
     }
 
     @RequestMapping(value = {"/blog"}, method = RequestMethod.GET)

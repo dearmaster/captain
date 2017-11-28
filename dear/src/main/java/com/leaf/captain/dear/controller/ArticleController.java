@@ -19,7 +19,7 @@ import java.util.Map;
 
 //@RestController
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/blog")
 public class ArticleController {
 
     private static final Logger logger = LogManager.getLogger(ArticleController.class);
@@ -27,18 +27,18 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "/loadArticles", method = RequestMethod.GET)
+    @RequestMapping(value = "/load", method = RequestMethod.GET)
     public List<Article> load() {
         return articleService.loadArticles();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/", method = RequestMethod.GET)
     public String displayArticles(ModelMap map) {
         map.put("categories", articleService.loadCategories());
         return "view_articles";
-    }
+    }*/
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/all", method = RequestMethod.GET)
     public String loadAllArticles(ModelMap map) {
         Map<Category, List<Article>> categoryArticleMap = articleService.loadCategoryArticleMap();
         if (logger.isDebugEnabled()) {
@@ -48,7 +48,7 @@ public class ArticleController {
         }
         map.put("categoryArticleMap", categoryArticleMap);
         return "view_articles";
-    }
+    }*/
 
     @RequestMapping(value = "/publish", method = RequestMethod.GET)
     public String publishArticle(ModelMap map) {
@@ -56,7 +56,7 @@ public class ArticleController {
         return "write-dear";
     }
 
-    @RequestMapping(value = "/saveArticle", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveArticle(Article article, Model model) {
         if(logger.isDebugEnabled()) {
             logger.debug("Starting to save article: " + article);
@@ -66,7 +66,7 @@ public class ArticleController {
         return "view_articles";
     }
 
-    @RequestMapping(value = "/byCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "/category", method = RequestMethod.GET)
     public String getArticlesByCategoryName(Integer id, ModelMap map) {
         List<Article> articles = articleService.loadArticlesByCategoryId(id);
         if (logger.isDebugEnabled()) {
@@ -77,7 +77,7 @@ public class ArticleController {
         return "index";
     }
 
-    @RequestMapping(value = "byId", method = RequestMethod.GET)
+    @RequestMapping(value = "id", method = RequestMethod.GET)
     public String getArticleById(Integer id, ModelMap map) {
         Article article = articleService.get(id);
         if (logger.isDebugEnabled()) {

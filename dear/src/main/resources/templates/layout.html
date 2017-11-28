@@ -63,7 +63,7 @@
                 <div class="blog_categories" th:if="${not #lists.isEmpty(categories)}">
                     <ul>
                         <li th:each="category : ${categories}">
-                            <a th:href="@{/article/byCategory(id=${category.id})}"
+                            <a th:href="@{/blog/category(id=${category.id})}"
                                th:text="${category.name}">摄影学习</a>
                         </li>
 
@@ -86,7 +86,7 @@
                 <div class="blog_categories" th:if="${not #lists.isEmpty(categories)}">
                     <ul>
                         <li th:each="category : ${categories}">
-                            <a th:href="@{/article/byCategory(id=${category.id})}"
+                            <a th:href="@{/blog/category(id=${category.id})}"
                                th:text="${category.name}">test</a>
                         </li>
 
@@ -117,7 +117,7 @@
                         2017-11-21 15:30:29
                     </div>
                     <div class="blog_title">
-                        <a th:href="@{/article/byId(id=${article.id})}" th:text="${article.subject}">写给2017</a>
+                        <a th:href="@{/blog/id(id=${article.id})}" th:text="${article.subject}">写给2017</a>
                     </div>
                 </div>
 
