@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="layout :: htmlhead">
+    <title>Foregather</title>
+    <meta charset="utf-8"/>
+
+    <link rel="shortcut icon" href="static/img/logo.jpg" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="../static/js/ueditor/themes/default/css/umeditor.css"/>
+
+    <style type="text/css">
+        body {
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body th:replace="layout :: htmlbody(memory)"></body>
+
+</html>

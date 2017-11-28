@@ -1,0 +1,226 @@
+body {
+    background: url("../img/bg.gif");
+    color: floralwhite;
+    text-align: left;
+    margin-top: 0px;
+}
+a {
+    text-decoration: none;
+}
+a:link {
+    color: mediumspringgreen;
+}
+a:visited {
+    color: #d5e1f2;
+}
+a:hover {
+    color: blanchedalmond;
+}
+a:active {
+    color: #0000FF;
+}
+
+#myEditor {
+    width:800px;
+    height:240px;
+    font-size: 14px;
+    color: #fff;
+    background: url("../img/bg.gif");
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.edui-container {
+    color: #000;
+}
+
+.container > .header {
+    height: 200px;
+}
+
+.container > .header > .sky {
+    height: 100%;
+    width: 40%;
+    float: left;
+    background: url("../img/sky.png") no-repeat 0px 0px;
+
+    /*兼容模式设置半透明*/
+    filter:alpha(opacity=30);
+    -moz-opacity:0.3;
+    -khtml-opacity: 0.3;
+    opacity: 0.3;
+}
+
+.container > .header > .star {
+    width: 10%;
+    height: 90px;
+    float: right;
+    background: url("../img/shinning-star.gif") no-repeat 0px 0px;
+}
+
+.container > .header > .nav {
+    font-weight: bold;
+    margin-top: 120px;
+    width: 50%;
+    float: left;
+}
+
+.container > .header > .nav > ul {
+    list-style: none;
+}
+
+.container > .header > .nav > ul > li {
+    float: left;
+    padding: 10px 15px;
+}
+
+.container > .header > .nav > ul > li > a:active {
+    color: mediumspringgreen;
+}
+
+.container > .header > .nav > ul > li > a:visited {
+    color: mediumspringgreen;
+}
+
+.container > .header > .nav > ul > li:hover {
+    background: #1abc9c;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/*.container > .header > .nav > ul > li > a {
+    padding: 0 15px;
+}*/
+
+.container > .content {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.container > .content > .left-frame {
+    width: 180px;
+    border: dotted 1px #d5e1f2;
+    padding: 5px 5px 5px 5px;
+    float: left;
+
+    /*position:fixed;*/
+}
+
+.container > .content > .left-frame > .left_frame_menu {
+    margin-top: 50px;
+}
+
+.container > .content > .left-frame > .left_frame_menu > .blog_categories {
+    width: 80%;
+    margin-left: 0;
+}
+
+.container > .content > .left-frame > .left_frame_menu > div > ul > li {
+    padding: 5px;
+    text-align: center;
+}
+
+.container > .content > .left-frame > .left_frame_menu > div > ul > li:hover {
+    background-color: chocolate;
+
+    /*设置圆边*/
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.container > .content > .left-frame > #blog_owner_logo {
+    width: 150px;
+    height: 150px;
+    margin: 10px auto 0 auto;
+    border: dotted 1px #d5e1f2;
+
+    background: url("../img/portrait-captain.png");
+
+    /*设置圆角*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    /*兼容模式设置半透明*/
+    filter:alpha(opacity=70);
+    -moz-opacity:0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.container > .content > .left-frame > #blog_actions > ul > li {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.container > .content > .left-frame > #blog_owner_name {
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #d5e1f2;
+}
+
+.container > .content > .main-frame {
+    width: 760px;
+    border: dotted 1px #d5e1f2;
+    padding-bottom: 20px;
+    float: right;
+}
+
+.container > .content > .main-frame > .blogs_preview {
+    width: 95%;
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main_title {
+    text-align: center;
+    margin: 40px 0px 50px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    /*padding-bottom: 5px;*/
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main {
+    width: 80%;
+    height: 25px;
+    margin: 18px auto;
+    text-align: center;
+    border-bottom: dotted 1px aquamarine;
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_info {
+    float: left;
+    padding-top: 2px;
+    font-size: 15px;
+    width: 40%;
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_title {
+    width: 55%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    /*margin: 40px 0px;*/
+    float: left;
+}
+
+.container > .content > .main-frame > .blog_view > .blog_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 40px 0px;
+}
+
+.container > .content > .main-frame > .blogs_preview > .blog_main > .blog_content {
+    padding: 0px 10px;
+}
+
