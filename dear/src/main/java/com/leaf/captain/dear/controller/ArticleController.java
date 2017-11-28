@@ -77,7 +77,7 @@ public class ArticleController {
         return "index";
     }
 
-    @RequestMapping(value = "id", method = RequestMethod.GET)
+    @RequestMapping(value = "view", method = RequestMethod.GET)
     public String getArticleById(Integer id, ModelMap map) {
         Article article = articleService.get(id);
         if (logger.isDebugEnabled()) {
