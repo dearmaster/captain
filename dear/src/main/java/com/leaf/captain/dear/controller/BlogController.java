@@ -40,13 +40,13 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveBlog(Blog blog, Model model) {
+    public String saveBlog(@ModelAttribute Blog blog, Model model) {
         if(logger.isDebugEnabled()) {
             logger.debug("Starting to save blog: " + blog);
         }
         blog.setPublishDate(new Date());
         blogService.saveBlog(blog);
-        return VIEW_BLOG;
+        return "redirect:/" + VIEW_BLOG;
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)
@@ -69,11 +69,6 @@ public class BlogController {
         map.put("currentBlog", blog);
         map.put("categories", blogService.loadCategories()); //TODO need to refactor here
         return VIEW_BLOG;
-    }
-
-    @ModelAttribute
-    Blog setBlog() {
-        return new Blog();
     }
 
 }

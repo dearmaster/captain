@@ -38,6 +38,13 @@ a:active {
     margin-right: auto;
 }
 
+#memory_container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    border: dotted 1px #d5e1f2;
+}
+
 .edui-container {
     color: #000;
 }
